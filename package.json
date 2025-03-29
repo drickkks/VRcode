@@ -1,0 +1,35 @@
+{
+    "name": "dia-ipa2",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "test": "concurrently --kill-others 'vite --port 5173' 'wait-on http://localhost:5173 && vitest --run'",
+        "test:ui": "concurrently --kill-others 'vite --port 5173' 'wait-on http://localhost:5173 && vitest --ui'",
+        "test:basic": "vitest --reporter=verbose --run -t 'Basic tests'",
+        "test:mockdome": "vitest --reporter=verbose --run -t 'Mocked VideoDome'",
+        "test:primitive": "vitest --reporter=verbose --run -t 'primitive meshes'",
+        "test:message": "vitest --reporter=verbose --run -t 'message displayed'",
+        "test:dome": "concurrently --kill-others 'vite --port 5173' 'wait-on http://localhost:5173 && vitest --reporter=verbose --run -t \"VideoDome object\"'",
+        "test:camera": "concurrently --kill-others 'vite --port 5173' 'wait-on http://localhost:5173 && vitest --reporter=verbose --run -t \"ArcRotateCamera object\"'"
+    },
+    "devDependencies": {
+        "@vitest/ui": "^3.0.5",
+        "concurrently": "^9.1.2",
+        "jsdom": "^26.0.0",
+        "puppeteer": "^24.2.0",
+        "typescript": "^5.7.3",
+        "vite": "^6.1.0",
+        "vitest": "^3.0.5",
+        "wait-on": "^8.0.2"
+    },
+    "dependencies": {
+        "@babylonjs/core": "^7.48.3",
+        "@babylonjs/gui": "^7.48.3",
+        "@babylonjs/loaders": "^7.48.3",
+        "canvas": "^3.1.0"
+    }
+}
